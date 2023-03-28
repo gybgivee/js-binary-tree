@@ -34,6 +34,19 @@ const treeMinValueBreadthFirst = (root)=>{
     }
     return smallest;
 }
+const treeMinValueDepthFirstSearch = (root) => {
+  const queue = [root];
+
+  let smallest = Infinity;
+  while (queue.length) {
+    const current = queue.shift();
+    if (current.val < smallest) smallest = current.val;
+
+    if (current.left !== null) queue.push(current.left);
+    if (current.right !== null) queue.push(current.right);
+  }
+  return smallest;
+};
 
 const a = new Node(3);
 const b = new Node(11);
